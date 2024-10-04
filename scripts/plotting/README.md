@@ -22,6 +22,5 @@ conda env create -f environment.yml
 
 ## Usage
 The following scripts are available:
-- `generate_animations.py`: Generates the plots animations of the robot walking and plots the steps and CoM trajectories;
-- `generate_plots.py`: Generates the plots presented in the paper.
-  
+- `generate_animations.py`: Generates the plots animations of the robot walking and plots the steps and CoM trajectories. The animations are saved in the `animations` directory;
+- `generate_plots.py`: Generates the plots presented in the paper. The plots are saved in the `figures` directory.
