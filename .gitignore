@@ -156,3 +156,5 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+scripts/plotting/animations/**
+scripts/plotting/figures/**
