@@ -15,7 +15,7 @@ Giulio Romualdi, Paolo Maria Viceconte, Lorenzo Moretti, Ines Sorrentino, Stefan
 </div>
  
 <div align="center">
-    <a href="#reproducing-the-experiments"><b>🔧 Installation 🔧</b> | </a> <a href="https://huggingface.co/datasets/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking_dataset/tree/main/kf_autotuning"><b>📂 Dataset 📂</b></a>
+    <a href="#reproducing-the-experiments"><b>🔧 Installation 🔧</b> | </a> <a href="https://huggingface.co/datasets/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking_dataset><b>📂 Dataset 📂</b></a>
 </div>
 
 
