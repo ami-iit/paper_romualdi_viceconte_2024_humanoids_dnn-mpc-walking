@@ -11,11 +11,12 @@ Giulio Romualdi, Paolo Maria Viceconte, Lorenzo Moretti, Ines Sorrentino, Stefan
 
 
 <div align="center">
-    📅 Submitted to the IEEE Humanoids 2024 🤖
+    📅 This paper has been accepted for publication at the 2024 IEEE-RAS International Conference on Humanoid Robots, (Humanoids) Nancy, France, 2024
+ 🤖
 </div>
  
 <div align="center">
-    <a href="#reproducing-the-experiments"><b>🔧 Installation 🔧</b> </a> | <a href="https://sites.google.com/view/dnn-mpc-walking/home-page"><b>🌐 Website 🌐</b> </a>  | <a href="https://huggingface.co/datasets/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking_dataset"><b>📂 Dataset 📂</b></a>
+   <a href="https://arxiv.org/abs/2410.07849"><b>📚 Paper</b> </a>  |    <a href="#reproducing-the-experiments"><b>🔧 Installation</b> </a> | <a href="https://sites.google.com/view/dnn-mpc-walking/home-page"><b>🌐 Website</b> </a>  | <a href="https://huggingface.co/datasets/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking_dataset"><b>📂 Dataset</b></a> 
 </div>
 
 
