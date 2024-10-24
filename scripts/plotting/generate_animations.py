@@ -8,7 +8,7 @@ from dnn_mpc_plot import (
 
 def main():
     current_file_path = Path(__file__).resolve()
-    dataset_path = current_file_path.parent.parent / "dataset" / "paper_experiments"
+    dataset_path = current_file_path.parent.parent.parent / "dataset" / "paper_experiments"
     animation_path = current_file_path.parent / "animations"
 
     animate_plot_steps_and_com_controller.animate(dataset_path, animation_path)

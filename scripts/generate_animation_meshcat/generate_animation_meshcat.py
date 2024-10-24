@@ -357,7 +357,7 @@ def generate_website(dataset_path: Path, website_path: Path):
 
 def main():
     current_file_path = Path(__file__).resolve()
-    dataset_path = current_file_path.parent.parent / "dataset" / "paper_experiments"
+    dataset_path = current_file_path.parent.parent.parent / "dataset" / "paper_experiments"
     website_path = current_file_path.parent / "website"
 
     # check if the website folder exists if not create it
