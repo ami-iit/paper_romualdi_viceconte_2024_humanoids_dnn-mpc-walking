@@ -158,3 +158,4 @@ cython_debug/
 
 scripts/plotting/animations/**
 scripts/plotting/figures/**
+scripts/generate_animation_meshcat/website/**
