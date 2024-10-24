@@ -10,7 +10,7 @@ from dnn_mpc_plot import (
 
 def main():
     current_file_path = Path(__file__).resolve()
-    dataset_path = current_file_path.parent / "dataset" / "paper_experiments"
+    dataset_path = current_file_path.parent.parent / "dataset" / "paper_experiments"
     plot_path = current_file_path.parent / "figures"
 
     plot_ga_kf_autotuning.plot(dataset_path, plot_path, load_from_wandb=False)
