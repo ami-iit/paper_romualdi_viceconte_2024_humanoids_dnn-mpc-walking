@@ -9,11 +9,40 @@ version = "0.1.0"
 [target.unix.activation.env]
 PATH = "$PATH:$PIXI_PROJECT_ROOT/.pixi_install_prefix/bin"
 
+[feature.mumps.activation.env]
+DNNMPC_LINEAR_SOLVER = "default"
+
+[feature.coinhsl.activation.env]
+DNNMPC_LINEAR_SOLVER = "coinhsl"
+
 [tasks]
-install = { cmd = "cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=ON -DCMAKE_INSTALL_PREFIX=$PIXI_PROJECT_ROOT/.pixi_install_prefix -GNinja -S. -B.build && cmake --build .build --config Release && cmake --install .build --config Release", outputs=[".pixi_install_prefix/bin/dnn-mpc-walking"] }
+install = { cmd = "cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=ON -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX -GNinja -S. -B.build-default  && cmake --build .build-default --config Release && cmake --install .build-default --config Release", outputs=["./.pixi/envs/default/bin/dnn-mpc-walking"] }
 uninstall = { cmd = ["cmake", "--build", ".build", "--target", "uninstall"]}
 run_simulation = { cmd = "bash run_simulation.sh", depends_on = ["install"] }
 
+[feature.coinhsl.tasks]
+# This is duplicated as apparently pixi output get confused between the two caches and two build directories
+install = { cmd = "cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING:BOOL=ON -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX -GNinja -S. -B.build-coinhsl  && cmake --build .build-coinhsl --config Release && cmake --install .build-coinhsl --config Release", outputs=["./.pixi/envs/coinhsl/bin/dnn-mpc-walking"] }
+install_coinhsl = { cmd = "python $PIXI_PROJECT_ROOT/scripts/pixi/check_and_extract_coinhsl.py && meson setup ./.build-coinhsl/coinhsl-2023.11.17-build/ ./.build-coinhsl/coinhsl-2023.11.17 --buildtype=release -Dlibdir=lib --prefix=$CONDA_PREFIX -Dmodules=false && meson compile -C ./.build-coinhsl/coinhsl-2023.11.17-build/ && meson install -C ./.build-coinhsl/coinhsl-2023.11.17-build/ && cp ./.pixi/envs/coinhsl/lib/libcoinhsl.so ./.pixi/envs/coinhsl/lib/libhsl.so" , outputs=["./.pixi/envs/coinhsl/lib/libhsl.so"] }
+install_with_coinhsl = { cmd = "python $PIXI_PROJECT_ROOT/scripts/pixi/replace_mumps_with_coinhsl.py", depends_on = ["install"] }
+run_simulation = { cmd = "bash run_simulation.sh", depends_on = ["install_with_coinhsl", "install_coinhsl"] }
+
+
+[environments]
+
+# The default environment uses mumps as linear solver
+default = {features = ["mumps"], solve-group = "common-solve-group"}
+
+# If a user has access to the coinhsl-2023.11.17 tarball, the coinhsl
+# environmemnt can be used for faster walking
+coinhsl = {features = [ "coinhsl"], solve-group = "common-solve-group"}
+
+
+# Dependencies added only in pixi.toml
+[feature.coinhsl.dependencies]
+meson = "*"
+
+# Dependencies generated via pixi init . --import environment.yml
 [dependencies]
 _libgcc_mutex = { version = "==0.1", build = "conda_forge" }
 _openmp_mutex = { version = "==4.5", build = "2_gnu" }
@@ -451,3 +480,4 @@ zeromq = { version = "==4.3.5", build = "h3b0a872_7" }
 zlib = { version = "==1.3.1", build = "hb9d3cd8_2" }
 zstd = { version = "==1.5.6", build = "ha6fb4c9_0" }
 zziplib = { version = "==0.13.69", build = "he45264a_2" }
+

@@ -1,10 +1,23 @@
 #!/bin/bash
 
+env
+
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
 # Construct the full path to the 'world' file relative to the script's directory
-WORLD_FILE="$SCRIPT_DIR/worlds/dnn_mpc_ergoCubGazeboV1_1/world"
+# based on DNNMPC_LINEAR_SOLVER environment variable
+if [ -z "${DNNMPC_LINEAR_SOLVER}" ] || [ "${DNNMPC_LINEAR_SOLVER}" = "default" ]; then
+    # Default case: if DNNMPC_LINEAR_SOLVER is not set or set to 'default', use the "slow"
+    # world file with RTF 0.1
+    WORLD_FILE="$SCRIPT_DIR/worlds/dnn_mpc_ergoCubGazeboV1_1/world_rtf_0_1"
+elif [ "${DNNMPC_LINEAR_SOLVER}" = "coinhsl" ]; then
+    # If DNNMPC_LINEAR_SOLVER is set to 'coinhsl', use the "fast" world file with RTF 0.5
+    WORLD_FILE="$SCRIPT_DIR/worlds/dnn_mpc_ergoCubGazeboV1_1/world_rtf_0_5"
+else
+    echo "Error: DNNMPC_LINEAR_SOLVER is set to an invalid value ('${DNNMPC_LINEAR_SOLVER}'). Valid values are 'default' or 'coinhsl'."
+    exit 1
+fi
 
 # Start a new detached tmux session named 'dnn-mpc' with root directory '~/'
 tmux new-session -d -s dnn-mpc -c ~/
