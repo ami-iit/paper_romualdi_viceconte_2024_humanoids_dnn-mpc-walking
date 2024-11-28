@@ -2,7 +2,7 @@
 FROM nvidia/opengl:1.2-glvnd-devel-ubuntu22.04
 LABEL org.opencontainers.image.title="DNN-MPC walking Docker Image"
 LABEL org.opencontainers.image.description="Infrastructure for running a simulation of a humanoid robot walking using DNN-MPC architecture."
-LABEL org.opencontainers.image.source="https://raw.githubusercontent.com/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn/main/dockerfiles/Dockerfile"
+LABEL org.opencontainers.image.source="https://raw.githubusercontent.com/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking/refs/heads/main/dockerfiles/Dockerfile"
 LABEL org.opencontainers.image.authors="Giulio Romualdi <giulio.romualdi@iit.it>"
 
 
