@@ -1,5 +1,7 @@
 # build folders
 build*
+.build*
+.pixi_install_prefix
 
 # emacs
 *~
@@ -159,3 +161,7 @@ cython_debug/
 scripts/plotting/animations/**
 scripts/plotting/figures/**
 scripts/generate_animation_meshcat/website/**
+
+# pixi environments
+.pixi
+*.egg-info
