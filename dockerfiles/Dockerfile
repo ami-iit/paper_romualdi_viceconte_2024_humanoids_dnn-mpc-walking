@@ -35,6 +35,7 @@ WORKDIR /workspace
 # Clone the repository with the submodules compile it and install it in the conda environment
 RUN git clone https://github.com/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking.git && \
     cd paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking && \
+    git checkout v1.0.0 && \
     mkdir build && \
     cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/conda/envs/dnn-mpc-env .. && \
