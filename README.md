@@ -15,7 +15,8 @@ Giulio Romualdi, Paolo Maria Viceconte, Lorenzo Moretti, Ines Sorrentino, Stefan
 <br>
 
 <div align="center">
-   <a href="https://arxiv.org/abs/2410.07849"><b>📚 Paper</b></a> &nbsp;&nbsp;&nbsp;
+   <a href="https://ieeexplore.ieee.org/document/10769894"><b>📜 Paper</b></a> &nbsp;&nbsp;&nbsp;
+   <a href="https://arxiv.org/abs/2410.07849"><b>📚 arXiv</b></a> &nbsp;&nbsp;&nbsp;
    <a href="https://www.youtube.com/watch?v=x3tzEfxO-xQ"><b>🎥 Video</b></a> &nbsp;&nbsp;&nbsp;
    <a href="https://github.com/ami-iit/paper_romualdi_viceconte_2024_humanoids_dnn-mpc-walking/blob/main/misc/poster/humanoids-2024-dnn-mpc.pdf"><b>🖼️ Poster</b></a> &nbsp;&nbsp;&nbsp;
    <a href="#reproducing-the-experiments"><b>🔧 Experiments</b></a> &nbsp;&nbsp;&nbsp;
